@@ -1,0 +1,42 @@
+stages:
+  - build
+  - deploy
+  - cleanup
+
+variables:
+  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_PIPELINE_IID
+  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+
+# Define a default template with common settings
+.default_parallel: &default_parallel
+  parallel: 2
+
+build:
+  stage: build
+  script:
+    - docker build --rm -t $CONTAINER_TEST_IMAGE .
+    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
+    # - docker push $CONTAINER_TEST_IMAGE
+    # - docker push $CONTAINER_RELEASE_IMAGE
+    # - docker build --rm -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_PIPELINE_IID .
+    # - docker tag $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_PIPELINE_IID $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest
+  only:
+    - main
+  <<: *default_parallel
+
+deploy_image_test:
+  stage: deploy
+  script:
+    - docker service update --with-registry-auth --image $CONTAINER_TEST_IMAGE ra_${CI_PROJECT_NAME}
+  only:
+    - main
+  <<: *default_parallel
+
+cleanup_job:
+  stage: cleanup
+  script:
+    - docker system prune -a -f
+  only:
+    - main
+  <<: *default_parallel
+

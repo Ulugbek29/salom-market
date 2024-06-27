@@ -1,0 +1,11 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 300px;
+    min-width: 200px;
+    label {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+}

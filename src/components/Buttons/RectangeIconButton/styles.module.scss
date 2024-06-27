@@ -1,0 +1,18 @@
+.button {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 1px solid #eee;
+  background-color: #eee;
+  &.sm {
+    padding: 6px 8px;
+  }
+  &.md {
+    padding: 9px 11px;
+  }
+  &.lg {
+    padding: 12px 14px;
+  }
+}

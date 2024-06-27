@@ -1,0 +1,26 @@
+.button {
+  position: fixed;
+  bottom: 10px;
+  padding: 0 8px 0 8px;
+  width: 100%;
+  z-index: 105;
+  text-align: center;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+
+@media screen and (min-width: 700px) {
+  .button {
+    right: 50.7%;
+    transform: translateX(50%);
+    width: 58%;
+    padding:0;
+  }
+
+}
+
+
+
+
+

@@ -1,0 +1,35 @@
+.wrapper {
+  .head {
+    padding: 8px 4px;
+    .label {
+      color: rgba(0, 0, 0, 0.68);
+      font-size: 15px;
+      line-height: 22px;
+      width: 20%;
+      margin-bottom: 8px;
+    }
+    .input {
+      width: 100%;
+      border: 1px solid #eee;
+      padding: 16px 8px;
+      border-radius: 4px;
+      outline: none;
+      font-family: "Open Sans", sans-serif;
+      color: var(--tg-theme-text-color);
+      font-size: 15px;
+      line-height: 20px;
+      background-color: #f8f8f8;
+      border-radius: 4px;
+      &::placeholder {
+        color: var(--tg-theme-hint-color);
+      }
+    }
+  }
+
+  .errorText {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #e74d46;
+  }
+}

@@ -1,0 +1,53 @@
+.selector {
+    width: 100%;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    &.col-2 {
+       grid-template-columns: repeat(2, 1fr);
+    }
+    &.col-3 {
+        grid-template-columns: repeat(3, 1fr);
+     }
+     &.col-4 {
+        grid-template-columns: repeat(4, 1fr);
+     }
+    .label {
+        // flex-basis: 48%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding: 0.5rem 0rem;
+        border-radius: 0.5rem;
+        border: 1px solid #000;
+        cursor: pointer;
+        .checkIcon {
+            font-size: 1.4rem;
+            width: 18px;
+            height: 18px;
+            border: 1px solid #dfdfdf;
+            border-radius: 50%;
+        }
+        &.active {
+            background: #000;
+            color: white;
+            .checkIcon {
+                color:green;
+                border:none
+            }
+        }
+        input {
+            display: none;
+        }
+     
+    }
+}
+
+
+@media screen and (min-width: 450px) {
+    .selector {
+        grid-template-columns: repeat(3, 1fr);
+  }
+}

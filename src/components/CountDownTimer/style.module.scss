@@ -1,0 +1,19 @@
+.countdown {
+    display: flex;
+    gap: 0.2rem;
+    font-size: 15px;
+    line-height: 16px;
+    color: var(--tg-theme-hint-color);
+    padding: 8px 4px;
+    
+    span {
+      cursor: pointer;
+    }
+    
+    .disable {
+      opacity: 0.5;
+      color: #5b6871;
+      pointer-events: none;
+    }
+  }
+  

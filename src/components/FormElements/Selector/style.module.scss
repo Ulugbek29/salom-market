@@ -1,0 +1,34 @@
+.selector  {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    .title {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--tg-theme-hint-color);
+        text-transform: capitalize;
+    }
+    .option__box {
+        display: flex;
+        gap: 0.5rem;
+        .option__label {
+           display: flex;
+           gap: 0.5rem;
+           font-size: 0.9rem; 
+           .checkmark {
+                width: 19px;
+                height: 19px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background: #f3f3f3;
+                box-shadow: 0 0 2px rgba(0,0,0,0.5);
+                color: var(--primary-color);
+            }
+            .price {
+                color: var(--tg-theme-hint-color);
+            }
+        }
+    }
+}

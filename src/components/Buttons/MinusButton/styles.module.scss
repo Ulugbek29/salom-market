@@ -1,0 +1,29 @@
+.button {
+  background: #e74d46;
+  display: inline-block;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  border-radius: 7px;
+  font-size: 14px;
+  line-height: 18;
+  padding: 6px 16px;
+  height: 30px;
+  width: 38px;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 14px;
+    height: 3px;
+    background: #fff;
+    border-radius: 1px;
+    margin: auto;
+    z-index: 1;
+  }
+}

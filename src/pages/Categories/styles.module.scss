@@ -1,0 +1,48 @@
+.categories {
+  padding: 8px 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  overflow-x: scroll;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .category {
+    color: var(--tg-theme-text-color);
+    background-color: var(--tg-theme-secondary-bg-color);
+    text-align: center;
+    padding: 6px 8px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 500;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    &.active {
+      background-color: var(--primary-color);
+      color: var(--tg-theme-button-text-color);
+    }
+  }
+
+  .skelleton__list {
+    width: 100%;
+    display: flex;
+    overflow-x: auto; 
+    gap: 0.5rem;
+    flex-shrink: 0; 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

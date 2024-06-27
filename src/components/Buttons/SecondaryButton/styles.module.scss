@@ -1,0 +1,15 @@
+.button {
+  padding: 10px 24px;
+  color: var(--secondary-text, rgba(0, 0, 0, 0.68));
+  text-align: center;
+  font-family: Golos Text;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.1px;
+  border-radius: 8px;
+  background: var(--secondary, #eee);
+  width: 100%;
+  text-align: center;
+}

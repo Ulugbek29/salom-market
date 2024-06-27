@@ -1,0 +1,48 @@
+.page__not__found {
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    .header__title {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        h2 {
+            font-size: 5rem;
+            // color: var(--primary-color);
+        }
+        .donut {
+            width: 180px;
+            height: 180px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .back__btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        padding: 0.6rem 1rem;
+        border-radius: 0.2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #fff;
+        border: none;
+        outline: none;
+        background: var(--primary-color);
+        cursor: pointer;
+        transition: all 0.5s;
+        &:hover {
+            opacity: 0.9;
+        }
+        &:active {
+            transform: translateY(3px);
+        }
+    }
+}
