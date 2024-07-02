@@ -31,7 +31,7 @@ export default function DeliveryMap({ control, setValue, watch }) {
   const [addressList, setAddressList] = useState([]);
   const [mapHasResponse, setMapHasResponse] = useState(false);
   // const [ymaps, setYmaps] = useState();
-  // const [placemark, setPlacemark] = useState([41.3113, 69.279773]); //41.3113, 69.279773
+  const [placemark, setPlacemark] = useState([41.3113, 69.279773]); //41.3113, 69.279773
   const [zoom, setZoom] = useState(12);
   const [geolocationFetched, setGeolocationFetched] = useState(false);
   const mapRef = useRef();
@@ -49,8 +49,8 @@ export default function DeliveryMap({ control, setValue, watch }) {
   useEffect(() => {
     function success(pos) {
       const crd = pos.coords;
-      // setPlacemark([crd.latitude, crd.longitude]);
-      setValue("placemark",[crd.latitude, crd.longitude])
+      setPlacemark([crd.latitude, crd.longitude]);
+      // setValue("placemark",[crd.latitude, crd.longitude])
       setGeolocationFetched(true);
     }
     function error(prop) {
@@ -84,7 +84,7 @@ export default function DeliveryMap({ control, setValue, watch }) {
 
   useEffect(() => {
     if (geolocationFetched) {
-      getGeoLocation({ lat: addressCoordinates[1], long: addressCoordinates[0] }).then((res) => {
+      getGeoLocation({ lat: placemark[1], long: placemark[0] }).then((res) => {
 
         // if (res.features) {
 
@@ -126,7 +126,7 @@ export default function DeliveryMap({ control, setValue, watch }) {
             console.log("districtComponent",districtComponent)
             console.log("localityComponent",localityComponent)
           setZoom(17);
-          // setValue("placemark", addressCoordinates);
+          setValue("placemark", placemark);
           setValue("address", newAddress);
           dispatch(
             setUserOrder({
@@ -137,7 +137,7 @@ export default function DeliveryMap({ control, setValue, watch }) {
         }
       });
     }
-  }, [addressCoordinates]);
+  }, [placemark]);
 
   
 
@@ -199,7 +199,8 @@ export default function DeliveryMap({ control, setValue, watch }) {
 
    //Pick the addreess from the address list
    const pickAddress = (placeLocation, addressName) => {
-    setValue("placemark", placeLocation);
+    // setValue("placemark", placeLocation);
+    setPlacemark(placeLocation)
     setValue("address", addressName);
     setAddressList([]);
     setMapHasResponse(false);
@@ -238,7 +239,7 @@ export default function DeliveryMap({ control, setValue, watch }) {
           classes={cls.get_location_btn}
           onClick={() => {
             setZoom(17);
-            getCurrentLocation(setValue);
+            getCurrentLocation(setPlacemark);
           }}
         >
           Yetkazib berish manzilini belgilang
@@ -254,20 +255,20 @@ export default function DeliveryMap({ control, setValue, watch }) {
             control={control}
             render={({ field: {onChange, value} }) => (
               <Map
-                // onLoad={(e) => setYmaps(e)}
                 instanceRef={mapRef}
                 width="100%"
                 onClick={(e) => {
                   onChange(e.get("coords"));
-                  // setPlacemark(e.get("coords"));
+                  setPlacemark(e.get("coords"));
                   setZoom(17);
                 }}
                 modules={["geocode", "geolocation"]}
                 options={{ suppressMapOpenBlock: true, controls: [] }}
                 state={{
-                  center: value && value.length > 0
-                              ? value
-                              : [],
+                  // center: value && value.length > 0
+                  //             ? value
+                  //             : [],
+                  center: placemark,
                   zoom: zoom,
                   controls: [],
                   behaviors: ["default", "scrollZoom"],
@@ -295,7 +296,7 @@ export default function DeliveryMap({ control, setValue, watch }) {
                   }}
                 />
                 <Placemark
-                  geometry={value}
+                  geometry={placemark}
                   options={{
                     draggable: true,
                     iconLayout: "default#image",
@@ -305,7 +306,7 @@ export default function DeliveryMap({ control, setValue, watch }) {
                   }}
                   onDragEnd={(e) => {
                     const newCoords = e.get("target").geometry.getCoordinates();
-                    // setPlacemark(newCoords);
+                    setPlacemark(newCoords);
                     onChange(newCoords);
                   }}
                   onClick={(e) => {

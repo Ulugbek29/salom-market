@@ -81,8 +81,9 @@ export default function Selector({name, options, columns, control,title,attribut
         <CheckCircleIcon  color="inherit"/>
         )}
           </span>
-             
+             <span className={cls.name}>
           {option.name}
+             </span>
           <span className={cls.price}>
             + {option.price} сум
           </span>

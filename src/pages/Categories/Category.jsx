@@ -42,11 +42,13 @@ export default function Category({ data, activeCategory, setActiveCategory }) {
       className={`${cls.category} ${activeCategory ? cls.active : ""}`}
       onClick={()=>toggleActiveCategory()}
     >
+    {data.photo_url && (
       <img
         width={30}
         height={30}
-        src={data.name === "All" ? foodIcon : data.photo_url}
+        src={data.photo_url}
       />
+    )}
       <span>{data.name}</span>
     </motion.div>
   );

@@ -41,12 +41,12 @@
 
 
 
-export const getCurrentLocation = (setValue) => {
+export const getCurrentLocation = (setPlacemark) => {
 
   function success(pos) {
     const crd = pos.coords;
-    // setPlacemark([crd.latitude, crd.longitude]);
-    setValue("placemark",[crd.latitude, crd.longitude])
+    setPlacemark([crd.latitude, crd.longitude]);
+    // setValue("placemark",[crd.latitude, crd.longitude])
   }
   function error(prop) {
     console.log("ERROR => ", prop);

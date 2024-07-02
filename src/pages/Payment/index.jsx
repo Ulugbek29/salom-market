@@ -120,12 +120,12 @@ export default function Payment() {
     };
   
     console.log(orderData)
-    navigate("card-page")
-    // orderServices.create(orderData)
-    //   .then((res) => {
-    //     handleOpen()
-    //   })
-    //   .catch((err) => console.log(err));
+    // navigate("card-page")
+    orderServices.create(orderData)
+      .then((res) => {
+        handleOpen()
+      })
+      .catch((err) => console.log(err));
   };
 
   

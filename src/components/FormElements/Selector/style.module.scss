@@ -15,6 +15,11 @@
            display: flex;
            gap: 0.5rem;
            font-size: 0.9rem; 
+
+           .name {
+            white-space: pre-wrap;
+        }
+
            .checkmark {
                 width: 19px;
                 height: 19px;

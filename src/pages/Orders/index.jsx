@@ -71,7 +71,7 @@ export default function Orders() {
   const disableButtonIsCartEmpty = items.length === 0 ? true : false
 
 
-
+console.log(items);
   return (
     <>
       <AnimatePresence>
